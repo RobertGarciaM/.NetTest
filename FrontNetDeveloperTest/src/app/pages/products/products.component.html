@@ -1,0 +1,37 @@
+<div class="container">
+        <h3>Products</h3>
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="panel-heading">
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="one">
+                  <div class="table-responsive">
+                    <table #tblHistorical class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>Description</th>
+                          <th>Available</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of products">
+                          <td>{{item.descripcion}}</td>
+                          <td>{{item.avalaible}}</td>
+                          <td>
+                                <button id="btnSave" class="btn btn-success btn-xs" name="btnSave"
+                                style="margin:2px" (click)="reserveProduct(item)">
+                                Reserve 1
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

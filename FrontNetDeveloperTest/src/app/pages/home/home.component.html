@@ -1,0 +1,43 @@
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Welcome {{nombreUsuario}}! PENDIENTE MOSTRAR DATOS DEL USUARIO</h5>
+            <div class="row">
+                <div class="col-sm-12">
+                    Role: {{rol}}, Age: {{edad}}, Gender: {{genero}}, Nationality: {{nacionalidad}}
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6" *ngIf="esAdmin">
+                    <button id="btnHisto" class="btn btn-success" name="btnHisto" style="margin:2px"
+                        (click)="goUsers()">
+                        Users
+                    </button>
+                    <button id="btnHisto" class="btn btn-success" name="btnHisto" style="margin:2px"
+                        (click)="gotoHistory()">
+                        Go to historical
+                    </button>
+                    <button id="btnReserv" class="btn btn-success" name="btnReserv" style="margin:2px"
+                        (click)="goReserve()">
+                        Reserve Products
+                    </button>
+                    <button id="btnViewReserve" class="btn btn-success" name="btnReserv" style="margin:2px"
+                        (click)="viewReserve()">
+                        View Reserve
+                    </button>
+                </div>
+                <div class="col-sm-6" *ngIf="!esAdmin">
+                    <button id="btnReserv" class="btn btn-success" name="btnReserv" style="margin:2px"
+                        (click)="goReserve()">
+                        Reserve Products
+                    </button>
+                    <button id="btnViewReserve" class="btn btn-success" name="btnReserv" style="margin:2px"
+                        (click)="viewReserve()">
+                        View Reserve
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

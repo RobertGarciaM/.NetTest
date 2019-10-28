@@ -1,0 +1,13 @@
+
+<!-- Not User -->
+<div class="container-fluid" *ngIf="!(isAuthenticated)">
+  <app-login (loginUser)="userLogueado( $event)" [recuperarContrasena]="validarRecuperar" ></app-login>
+</div>
+
+<!-- User-->
+<div class="container-fuild" *ngIf="isAuthenticated" >
+  <!-- <app-nav-menu  (cerrarSession)="cerrarSesion( $event )" ></app-nav-menu> -->
+  <div class="m-5">
+      <router-outlet></router-outlet>
+  </div>
+</div>

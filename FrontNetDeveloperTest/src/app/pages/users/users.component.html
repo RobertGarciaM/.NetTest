@@ -1,0 +1,74 @@
+<div class="container">
+    <div>
+        <h1>Remember. You should fill out all the data.</h1>
+        <h1>The Roles are "Admin" and "Regular"</h1>
+    </div>
+    <br>
+    <div class="text-left">
+       <h3>Users</h3>
+        <button id="btnSave" class="btn btn-success btn-xs" name="btnSave" style="margin:2px;float: right;" (click)="addUser()">
+            Add User
+        </button>
+        <br>
+    </div>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="panel-heading">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="one">
+                        <div class="table-responsive">
+                            <table #tblUsers class="table table-striped table-bordered dt-responsive nowrap"
+                                cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Role</th>
+                                        <th>Age</th>
+                                        <th>Gender </th>
+                                        <th>Nationality</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of users">
+                                        <td>
+                                            <input type="text" id="user" class="form-control" name="user"
+                                                [(ngModel)]="item.nombreCompleto" maxlength="99" autocomplete="off" />
+                                        </td>
+                                        <td>
+                                            <input type="text" id="user" class="form-control" name="user"
+                                                [(ngModel)]="item.rol" maxlength="99" autocomplete="off" />
+                                        </td>
+                                        <td>
+                                                <input type="text" id="user" class="form-control" name="user"
+                                                    [(ngModel)]="item.edad" maxlength="99" autocomplete="off" />
+                                            </td>
+                                        <td>
+                                            <input type="text" id="user" class="form-control" name="user"
+                                                [(ngModel)]="item.genero" maxlength="99" autocomplete="off" />
+                                        </td>
+                                        <td>
+                                            <input type="text" id="user" class="form-control" name="user"
+                                                [(ngModel)]="item.nacionalidad" maxlength="99" autocomplete="off" />
+                                        </td>
+                                        <td>
+                                            <button id="btnSave" class="btn btn-success btn-xs" name="btnSave"
+                                                style="margin:2px" (click)="saveUser(item)">
+                                                S
+                                            </button>
+                                            <button id="btnSave" class="btn btn-danger btn-xs" name="btnSave"
+                                                style="margin:2px" (click)="deleteUser(item)">
+                                                D
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

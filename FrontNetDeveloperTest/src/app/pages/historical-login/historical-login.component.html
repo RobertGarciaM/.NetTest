@@ -1,0 +1,30 @@
+<div class="container">
+  <h3>Historical Login</h3>
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="panel-heading">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="one">
+            <div class="table-responsive">
+              <table #tblHistorical class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listHistorical">
+                    <td>{{item.userName}}</td>
+                    <td>{{item.dateLogin | date: 'dd/mm/yyyy hh:mm' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
