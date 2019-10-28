@@ -10,6 +10,7 @@ using Data.Api.Models;
 using Domain.Api.ViewModels.Role;
 using Domain.Api.ViewModels.Users;
 using Logic.Api.Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,7 @@ namespace Api.NetTest.Controllers.Users
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ManagementUsersController : BaseController
     {
 
@@ -45,7 +47,7 @@ namespace Api.NetTest.Controllers.Users
         /// <returns></returns>
         [HttpPost]
         [Route("Register")]
-        // [Authorize(Roles = "Admin, Administrador")]
+        [Authorize(Roles = "Admin")]
         //POST: /api/GestionUsuarios/Register
         public async Task<JsonResult> PostApplicationUser(ApplicationUserViewModel model)
         {
@@ -114,7 +116,7 @@ namespace Api.NetTest.Controllers.Users
         /// <returns></returns>
         [HttpPost]
         [Route("Role")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         //POST: /api/GestionUsuarios/CrearRole
         public async Task<JsonResult> CreateRole(RoleViewModel model)
         {
@@ -144,7 +146,7 @@ namespace Api.NetTest.Controllers.Users
         /// <returns></returns>
         [HttpPost]
         [Route("DeleteLogic")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         //POST: /api/GestionUsuarios/CrearRole
         public async Task<JsonResult> Delete(ApplicationUserViewModel model)
         {
@@ -180,7 +182,7 @@ namespace Api.NetTest.Controllers.Users
         /// <returns></returns>
         [HttpPost]
         [Route("GetUsers")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         //POST: /api/GestionUsuarios/CrearRole
         public async Task<JsonResult> GetUsers()
         {

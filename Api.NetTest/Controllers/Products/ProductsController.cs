@@ -9,6 +9,7 @@ using Data.Api.ApplicationSettings;
 using Data.Api.Models;
 using Domain.Api.ViewModels.Products;
 using Logic.Api.Logic.Products;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,7 @@ namespace Api.NetTest.Controllers.Products
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductsController : BaseController
     {
 
@@ -40,6 +42,7 @@ namespace Api.NetTest.Controllers.Products
         /// <returns></returns>
         [HttpPost]
         [Route("GetProducts")]
+        [Authorize(Roles = "Admin, Regular")]
         //POST: /api/HistoricalLogin/Login
         public async Task<JsonResult> Products()
         {
@@ -70,6 +73,7 @@ namespace Api.NetTest.Controllers.Products
         /// <returns></returns>
         [HttpPost]
         [Route("ReserveProducts")]
+        [Authorize(Roles = "Admin, Regular")]
         //POST: /api/HistoricalLogin/Login
         public async Task<JsonResult> ReserveProducts(ProductsViewModel model)
         {
@@ -103,6 +107,7 @@ namespace Api.NetTest.Controllers.Products
         /// <returns></returns>
         [HttpPost]
         [Route("GetReserve")]
+        [Authorize(Roles = "Admin, Regular")]
         //POST: /api/HistoricalLogin/Login
         public async Task<JsonResult> GetReserve()
         {

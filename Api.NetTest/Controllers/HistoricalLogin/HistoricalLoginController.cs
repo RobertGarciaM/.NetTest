@@ -6,6 +6,7 @@ using Api.NetTest.Controllers.ControllerBase;
 using Api.NetTest.Extensions;
 using Api.NetTest.Helpers;
 using Logic.Api.Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static Api.NetTest.Enums.Enums;
@@ -14,10 +15,12 @@ namespace Api.NetTest.Controllers.HistoricalLogin
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class HistoricalLoginController : BaseController
     {
         [HttpPost]
         [Route("GetHistorical")]
+        [Authorize(Roles = "Admin")]
         //POST: /api/HistoricalLogin/Login
         public async Task<JsonResult> Historical()
         {
